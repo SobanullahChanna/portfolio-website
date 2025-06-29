@@ -4,147 +4,204 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobanullah Channa - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #ffffff;
-      --text-light: #333333;
-      --primary-light: #0077cc;
+      --primary-color: #6a0dad;
+      --accent-color: #00bfa6;
+      --bg-color: #f9f9fb;
+      --text-color: #333;
+      --card-bg: #fff;
+      --footer-bg: #222;
+      --footer-text: #aaa;
+    }
 
-      --bg-dark: #1c1c1c;
-      --text-dark: #f1f1f1;
-      --primary-dark: #4db8ff;
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --card-bg: #1f1f1f;
+      --footer-bg: #000;
+      --footer-text: #666;
+    }
 
-      --transition: all 0.3s ease;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-light);
-      transition: var(--transition);
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: all 0.3s ease;
     }
 
     header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background: #fff;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem;
-      max-width: 1000px;
-      margin: auto;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    header nav a {
-      color: inherit;
+    body.dark nav {
+      background: #1f1f1f;
+    }
+
+    nav a {
       text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: bold;
-      transition: var(--transition);
+      color: var(--primary-color);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: all 0.3s ease;
     }
 
-    header nav a:hover {
-      color: var(--primary-light);
+    nav a:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary-color);
+      color: #fff;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
       padding: 2rem;
     }
 
-    h1, h2, h3 {
-      color: var(--primary-light);
-    }
-
-    .section {
+    section {
       margin-bottom: 4rem;
     }
 
-    .skills-list, .projects-list, .certs-list {
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+
+    .skills-list,
+    .certs-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
       list-style: none;
-      padding: 0;
     }
 
     .skills-list li,
     .certs-list li {
-      background: #f5f5f5;
-      margin-bottom: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .project-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 2rem;
-      transition: var(--transition);
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      padding: 1.5rem;
     }
 
     .project-card:hover {
-      border-color: var(--primary-light);
-      transform: translateY(-4px);
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
     }
 
     footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
+      transition: all 0.3s ease;
     }
 
-    .toggle-theme {
-      background: none;
-      border: 2px solid currentColor;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
+    .contact p a {
+      color: var(--primary-color);
+      text-decoration: none;
       font-weight: bold;
-      transition: var(--transition);
     }
 
-    .dark-theme {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
-    .dark-theme header nav a:hover {
-      color: var(--primary-dark);
-    }
-
-    .dark-theme h1,
-    .dark-theme h2,
-    .dark-theme h3 {
-      color: var(--primary-dark);
-    }
-
-    .dark-theme .skills-list li,
-    .dark-theme .certs-list li {
-      background: #333333;
-    }
-
-    .dark-theme .project-card {
-      border-color: #333333;
-      background: #2a2a2a;
+    .contact p a:hover {
+      color: var(--accent-color);
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Sobanullah Channa</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
-      <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
-    </nav>
+    <p>Aspiring Data Scientist and Computer Science Student</p>
   </header>
 
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </nav>
+
   <main class="container">
-    <section id="about" class="section">
+
+    <section id="about">
       <h2>About Me</h2>
       <p>
         I’m an aspiring Data Scientist and Computer Science student currently studying at SZABIST Larkana.
@@ -155,7 +212,7 @@
       </p>
     </section>
 
-    <section id="skills" class="section">
+    <section id="skills">
       <h2>Skills</h2>
       <h3>Technical Skills</h3>
       <ul class="skills-list">
@@ -174,36 +231,37 @@
       </ul>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects">
       <h2>Projects</h2>
+      <div class="projects-grid">
 
-      <div class="project-card">
-        <h3>Gaming Battleground Competition Organizer</h3>
-        <p>Organized and managed the “Gaming Battleground” competition at SZABIST Larkana. Led volunteers, coordinated logistics, and collaborated with departments. Developed leadership, teamwork, and problem-solving skills.</p>
-      </div>
+        <div class="project-card">
+          <h3>Gaming Battleground Competition Organizer</h3>
+          <p>Organized and managed the “Gaming Battleground” competition at SZABIST Larkana. Led volunteers, coordinated logistics, and collaborated with departments. Developed leadership, teamwork, and problem-solving skills.</p>
+        </div>
 
-      <div class="project-card">
-        <h3>Movie Recommendation System</h3>
-        <p>Built a movie recommendation system using Python, Pandas, and scikit-learn. Implemented collaborative filtering algorithms and visualized data patterns. Deployed an interactive web app with Streamlit.</p>
-      </div>
+        <div class="project-card">
+          <h3>Movie Recommendation System</h3>
+          <p>Built a movie recommendation system using Python, Pandas, and scikit-learn. Implemented collaborative filtering algorithms and visualized data patterns. Deployed an interactive web app with Streamlit.</p>
+        </div>
 
-      <div class="project-card">
-        <h3>COVID-19 Data Analysis Dashboard</h3>
-        <p>Collected and cleaned COVID-19 data from public APIs. Analyzed trends using Python and visualized results with interactive charts. Built a dashboard to provide actionable insights and forecasts.</p>
-      </div>
+        <div class="project-card">
+          <h3>COVID-19 Data Analysis Dashboard</h3>
+          <p>Collected and cleaned COVID-19 data from public APIs. Analyzed trends using Python and visualized results with interactive charts. Built a dashboard to provide actionable insights and forecasts.</p>
+        </div>
 
-      <div class="project-card">
-        <h3>Personal Portfolio Website</h3>
-        <p>Developed this responsive website to showcase my academic profile, technical skills, and projects. Built using HTML, CSS, and JavaScript with a modern, clean design.</p>
+        <div class="project-card">
+          <h3>Personal Portfolio Website</h3>
+          <p>Developed this responsive website to showcase my academic profile, technical skills, and projects. Built using HTML, CSS, and JavaScript with a modern, clean design.</p>
+        </div>
+
       </div>
     </section>
 
-    <section id="education" class="section">
+    <section id="education">
       <h2>Education</h2>
       <p><strong>Bachelor of Science in Computer Science</strong><br>
-        SZABIST Larkana (2023–2027 Expected)<br>
-        Focus areas:
-      </p>
+      SZABIST Larkana (2023–2027 Expected)</p>
       <ul class="skills-list">
         <li>Programming</li>
         <li>Data Structures & Algorithms</li>
@@ -213,7 +271,7 @@
       </ul>
     </section>
 
-    <section id="certifications" class="section">
+    <section id="certifications">
       <h2>Certifications</h2>
       <ul class="certs-list">
         <li>Python Development and Programming Fundamentals - Udemy</li>
@@ -223,12 +281,13 @@
       </ul>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:sobanc9@gmail.com">sobanc9@gmail.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/sobanullahchanna/" target="_blank">linkedin.com/in/sobanullahchanna</a></p>
       <p>Phone: +92 313 2305495</p>
     </section>
+
   </main>
 
   <footer>
@@ -237,8 +296,9 @@
 
   <script>
     function toggleTheme() {
-      document.body.classList.toggle('dark-theme');
+      document.body.classList.toggle('dark');
     }
   </script>
+
 </body>
 </html>
