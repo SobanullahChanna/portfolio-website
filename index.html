@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobanullah Channa - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #333333;
+      --primary-light: #0077cc;
+
+      --bg-dark: #1c1c1c;
+      --text-dark: #f1f1f1;
+      --primary-dark: #4db8ff;
+
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    header nav a {
+      color: inherit;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    header nav a:hover {
+      color: var(--primary-light);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary-light);
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .skills-list, .projects-list, .certs-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills-list li,
+    .certs-list li {
+      background: #f5f5f5;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    .project-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-4px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .toggle-theme {
+      background: none;
+      border: 2px solid currentColor;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .dark-theme {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .dark-theme header nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    .dark-theme h1,
+    .dark-theme h2,
+    .dark-theme h3 {
+      color: var(--primary-dark);
+    }
+
+    .dark-theme .skills-list li,
+    .dark-theme .certs-list li {
+      background: #333333;
+    }
+
+    .dark-theme .project-card {
+      border-color: #333333;
+      background: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sobanullah Channa</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        I’m an aspiring Data Scientist and Computer Science student currently studying at SZABIST Larkana.
+        My interests lie in programming, data science, and artificial intelligence. I love transforming complex data into actionable insights and building solutions that make a real-world impact.
+      </p>
+      <p>
+        My future goal is to contribute to impactful projects in data science and AI, leveraging my technical and problem-solving skills.
+      </p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <h3>Technical Skills</h3>
+      <ul class="skills-list">
+        <li>Python (Pandas, NumPy)</li>
+        <li>Data Science & Machine Learning</li>
+        <li>Data Visualization</li>
+        <li>SQL (MySQL, PostgreSQL)</li>
+        <li>Algorithms & Problem Solving</li>
+      </ul>
+      <h3>Professional Skills</h3>
+      <ul class="skills-list">
+        <li>Project Management</li>
+        <li>Leadership</li>
+        <li>Communication</li>
+        <li>Problem-Solving</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+
+      <div class="project-card">
+        <h3>Gaming Battleground Competition Organizer</h3>
+        <p>Organized and managed the “Gaming Battleground” competition at SZABIST Larkana. Led volunteers, coordinated logistics, and collaborated with departments. Developed leadership, teamwork, and problem-solving skills.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Movie Recommendation System</h3>
+        <p>Built a movie recommendation system using Python, Pandas, and scikit-learn. Implemented collaborative filtering algorithms and visualized data patterns. Deployed an interactive web app with Streamlit.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>COVID-19 Data Analysis Dashboard</h3>
+        <p>Collected and cleaned COVID-19 data from public APIs. Analyzed trends using Python and visualized results with interactive charts. Built a dashboard to provide actionable insights and forecasts.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Personal Portfolio Website</h3>
+        <p>Developed this responsive website to showcase my academic profile, technical skills, and projects. Built using HTML, CSS, and JavaScript with a modern, clean design.</p>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <p><strong>Bachelor of Science in Computer Science</strong><br>
+        SZABIST Larkana (2023–2027 Expected)<br>
+        Focus areas:
+      </p>
+      <ul class="skills-list">
+        <li>Programming</li>
+        <li>Data Structures & Algorithms</li>
+        <li>Data Science</li>
+        <li>Artificial Intelligence</li>
+        <li>Software Development</li>
+      </ul>
+    </section>
+
+    <section id="certifications" class="section">
+      <h2>Certifications</h2>
+      <ul class="certs-list">
+        <li>Python Development and Programming Fundamentals - Udemy</li>
+        <li>Programming for Beginners: Learn to Code in Python - Udemy</li>
+        <li>Authentic Leadership - Udemy</li>
+        <li>2024 Masterclass on Data Science using Python A-Z for ML - Udemy</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sobanc9@gmail.com">sobanc9@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/sobanullahchanna/" target="_blank">linkedin.com/in/sobanullahchanna</a></p>
+      <p>Phone: +92 313 2305495</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Sobanullah Channa. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+    }
+  </script>
+</body>
+</html>
