@@ -145,11 +145,38 @@
       overflow: hidden;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
-      padding: 1.5rem;
     }
 
     .project-card:hover {
       transform: translateY(-5px);
+    }
+
+    .project-image-container {
+      height: 200px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f0f0;
+    }
+
+    body.dark .project-image-container {
+      background: #2a2a2a;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 1.5rem;
     }
 
     .project-card h3 {
@@ -180,6 +207,32 @@
     .contact p a:hover {
       color: var(--accent-color);
     }
+
+    /* Optional: About image styling */
+    #about img {
+      width: 200px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Placeholder for missing images */
+    .image-placeholder {
+      width: 100%;
+      height: 200px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-weight: bold;
+    }
+
+    body.dark .image-placeholder {
+      background: #2a2a2a;
+      color: #aaa;
+    }
+
   </style>
 </head>
 <body>
@@ -202,84 +255,122 @@
   <main class="container">
 
     <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I’m an aspiring Data Scientist and Computer Science student currently studying at SZABIST Larkana.
-        My interests lie in programming, data science, and artificial intelligence. I love transforming complex data into actionable insights and building solutions that make a real-world impact.
-      </p>
-      <p>
-        My future goal is to contribute to impactful projects in data science and AI, leveraging my technical and problem-solving skills.
-      </p>
-    </section>
+  <h2>About Me</h2>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <h3>Technical Skills</h3>
-      <ul class="skills-list">
-        <li>Python (Pandas, NumPy)</li>
-        <li>Data Science & Machine Learning</li>
-        <li>Data Visualization</li>
-        <li>SQL (MySQL, PostgreSQL)</li>
-        <li>Algorithms & Problem Solving</li>
-      </ul>
-      <h3>Professional Skills</h3>
-      <ul class="skills-list">
-        <li>Project Management</li>
-        <li>Leadership</li>
-        <li>Communication</li>
-        <li>Problem-Solving</li>
-      </ul>
-    </section>
+  <p style="margin-bottom: 10px;">
+    I am a Computer Science undergraduate at SZABIST Larkana, driven by a strong interest in software development, data science, and the transformative potential of technology. Recently completed my 5th semester, I have built a solid foundation in data structures, algorithms, and object-oriented programming, and am expanding my expertise into advanced development domains.
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    My technical skill set includes advanced proficiency in Python and the Flask framework, allowing me to design and build robust web applications. I am experienced with Jinja templating, SQLAlchemy for database integration, and core web technologies like HTML5. My knowledge spans Python fundamentals, object-oriented and functional programming paradigms, and effective error handling, equipping me to create scalable and efficient software solutions.
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    My career objective is to specialize in software engineering and data science, developing impactful applications that transform complex data into actionable insights and deliver meaningful user experiences. I am committed to continuous learning and eager to contribute my skills to innovative projects in technology, AI, and data-driven development.
+  </p>
+</section>
+
+
+   <section id="skills">
+  <h2>Skills</h2>
+  <h3>Technical Skills</h3>
+  <ul class="skills-list">
+    <li>Python Development</li>
+    <li>Advanced Python & Flask</li>
+    <li>Flask Framework</li>
+    <li>Jinja Templates</li>
+    <li>SQLAlchemy</li>
+    <li>Database Development</li>
+    <li>HTML5 (Tags & Forms)</li>
+    <li>Web Development</li>
+    <li>Data Science & Machine Learning</li>
+    <li>Data Visualization</li>
+    <li>SQL (MySQL, PostgreSQL)</li>
+    <li>Algorithms & Problem Solving</li>
+  </ul>
+
+  <h3 style="margin-top: 20px;">Professional Skills</h3>
+  <ul class="skills-list">
+    <li>Project Management</li>
+    <li>Leadership</li>
+    <li>Communication</li>
+    <li>Problem-Solving</li>
+  </ul>
+</section>
+
+
+
 
     <section id="projects">
       <h2>Projects</h2>
       <div class="projects-grid">
 
+       <div class="project-card">
+  <div class="project-image-container">
+    <img src="images/gaming-event.png" alt="Gaming Battleground Competition">
+  </div>
+  <div class="project-content">
+    <h3>Gaming Battleground Competition Organizer</h3>
+    <p>Organized and managed the "Gaming Battleground" competition at SZABIST Larkana. Led volunteers, coordinated logistics, and collaborated with departments. Developed leadership, teamwork, and problem-solving skills.</p>
+  </div>
+</div>
+
         <div class="project-card">
-          <h3>Gaming Battleground Competition Organizer</h3>
-          <p>Organized and managed the “Gaming Battleground” competition at SZABIST Larkana. Led volunteers, coordinated logistics, and collaborated with departments. Developed leadership, teamwork, and problem-solving skills.</p>
+          <div class="project-image-container">
+            <img src="images/movie-recommender.png" alt="Movie Recommendation System">
+          </div>
+          <div class="project-content">
+            <h3>Movie Recommendation System</h3>
+            <p>Built a movie recommendation system using Python, Pandas, and scikit-learn. Implemented collaborative filtering algorithms and visualized data patterns. Deployed an interactive web app with Streamlit.</p>
+          </div>
         </div>
 
         <div class="project-card">
-          <h3>Movie Recommendation System</h3>
-          <p>Built a movie recommendation system using Python, Pandas, and scikit-learn. Implemented collaborative filtering algorithms and visualized data patterns. Deployed an interactive web app with Streamlit.</p>
+          <div class="project-image-container">
+            <img src="images/covid_dashboard.png" alt="COVID-19 Data Analysis Dashboard Screenshot" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>COVID Dashboard Image</div>';">
+          </div>
+          <div class="project-content">
+            <h3>COVID-19 Data Analysis Dashboard</h3>
+            <p>Collected and cleaned COVID-19 data from public APIs. Analyzed trends using Python and visualized results with interactive charts. Built a dashboard to provide actionable insights and forecasts.</p>
+          </div>
         </div>
 
         <div class="project-card">
-          <h3>COVID-19 Data Analysis Dashboard</h3>
-          <p>Collected and cleaned COVID-19 data from public APIs. Analyzed trends using Python and visualized results with interactive charts. Built a dashboard to provide actionable insights and forecasts.</p>
-        </div>
-
-        <div class="project-card">
-          <h3>Personal Portfolio Website</h3>
-          <p>Developed this responsive website to showcase my academic profile, technical skills, and projects. Built using HTML, CSS, and JavaScript with a modern, clean design.</p>
+          <div class="project-image-container">
+            <img src="images/portfolio-screenshot.png" alt="Portfolio Website Screenshot">
+          </div>
+          <div class="project-content">
+            <h3>Personal Portfolio Website</h3>
+            <p>Developed this responsive website to showcase my academic profile, technical skills, and projects. Built using HTML, CSS, and JavaScript with a modern, clean design.</p>
+          </div>
         </div>
 
       </div>
     </section>
 
     <section id="education">
-      <h2>Education</h2>
-      <p><strong>Bachelor of Science in Computer Science</strong><br>
-      SZABIST Larkana (2023–2027 Expected)</p>
-      <ul class="skills-list">
-        <li>Programming</li>
-        <li>Data Structures & Algorithms</li>
-        <li>Data Science</li>
-        <li>Artificial Intelligence</li>
-        <li>Software Development</li>
-      </ul>
-    </section>
+  <h2>Education</h2>
+  <ul>
+    <li>
+      <strong>Bachelor of Science in Computer Science</strong><br>
+      SZABIST Larkana<br>
+      Current - Completed 5th Semester
+    </li>
+  </ul>
+</section>
 
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <ul class="certs-list">
-        <li>Python Development and Programming Fundamentals - Udemy</li>
-        <li>Programming for Beginners: Learn to Code in Python - Udemy</li>
-        <li>Authentic Leadership - Udemy</li>
-        <li>2024 Masterclass on Data Science using Python A-Z for ML - Udemy</li>
-      </ul>
-    </section>
+
+   <section id="certifications">
+  <h2>Certifications</h2>
+  <ul class="certs-list">
+    <li>HTML5, Python, Flask Framework - Udemy</li>
+    <li>Python Development and Programming Fundamentals - Udemy</li>
+    <li>Programming for Beginners: Learn to Code in Python - Udemy</li>
+    <li>Authentic Leadership - Udemy</li>
+    <li>2024 Masterclass on Data Science using Python A-Z for ML - Udemy</li>
+  </ul>
+</section>
+
 
     <section id="contact" class="contact">
       <h2>Contact</h2>
@@ -298,6 +389,17 @@
     function toggleTheme() {
       document.body.classList.toggle('dark');
     }
+
+    // Fallback for images if they don't load
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('.project-card img');
+      images.forEach(img => {
+        if(!img.complete || img.naturalWidth === 0) {
+          const container = img.parentElement;
+          container.innerHTML = '<div class="image-placeholder">' + img.alt + '</div>';
+        }
+      });
+    });
   </script>
 
 </body>
