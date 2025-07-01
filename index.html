@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sobanullah Channa - Portfolio</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
   <style>
     :root {
       --primary-color: #6a0dad;
@@ -14,6 +20,7 @@
       --card-bg: #fff;
       --footer-bg: #222;
       --footer-text: #aaa;
+      --input-border: #ddd;
     }
 
     body.dark {
@@ -22,6 +29,7 @@
       --card-bg: #1f1f1f;
       --footer-bg: #000;
       --footer-text: #666;
+      --input-border: #444;
     }
 
     * {
@@ -43,16 +51,55 @@
       color: #fff;
       text-align: center;
       padding: 3rem 1rem;
+      position: relative;
     }
 
     header h1 {
       font-family: 'Montserrat', sans-serif;
       font-size: 3rem;
       margin-bottom: 1rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
 
     header p {
       font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .download-resume {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary-color);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .download-resume:hover {
+      background: var(--accent-color);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    body.dark .download-resume {
+      background: #1f1f1f;
+      color: #fff;
+    }
+
+    body.dark .download-resume:hover {
+      background: var(--accent-color);
     }
 
     nav {
@@ -198,48 +245,128 @@
       transition: all 0.3s ease;
     }
 
-    .contact p a {
+    /* Contact Section Styles */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-info p a {
       color: var(--primary-color);
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
-    .contact p a:hover {
+    .contact-info p a:hover {
       color: var(--accent-color);
     }
 
-    /* Optional: About image styling */
-    #about img {
-      width: 200px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    /* Placeholder for missing images */
-    .image-placeholder {
-      width: 100%;
-      height: 200px;
-      background: #ddd;
+    .contact-form {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #777;
-      font-weight: bold;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    body.dark .image-placeholder {
-      background: #2a2a2a;
-      color: #aaa;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
+    .form-group label {
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--input-border);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      background: var(--card-bg);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.2);
+    }
+
+    .submit-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 191, 166, 0.3);
+    }
+
+    #form-status {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      min-height: 1.2rem;
+      text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* AOS animation base styles */
+    [data-aos] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    [data-aos].aos-animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body>
 
   <header>
     <h1>Sobanullah Channa</h1>
-    <p>Aspiring Data Scientist and Computer Science Student</p>
+    <p>Aspiring Data Scientist | Website Developer | Computer Science Student</p>
+    <a href="Sobanullah_Channa_Resume.pdf" class="download-resume" download="Sobanullah_Channa_Resume.pdf">Download Resume</a>
   </header>
 
   <nav>
@@ -254,68 +381,59 @@
 
   <main class="container">
 
-    <section id="about">
-  <h2>About Me</h2>
+    <section id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p style="margin-bottom: 10px;">
+        I am a Computer Science undergraduate at SZABIST Larkana, driven by a strong interest in software development, data science, and the transformative potential of technology. Recently completed my 5th semester, I have built a solid foundation in data structures, algorithms, and object-oriented programming, and am expanding my expertise into advanced development domains.
+      </p>
+      <p style="margin-bottom: 10px;">
+        My technical skill set includes advanced proficiency in Python and the Flask framework, allowing me to design and build robust web applications. I am experienced with Jinja templating, SQLAlchemy for database integration, and core web technologies like HTML5. My knowledge spans Python fundamentals, object-oriented and functional programming paradigms, and effective error handling, equipping me to create scalable and efficient software solutions.
+      </p>
+      <p style="margin-bottom: 10px;">
+        My career objective is to specialize in software engineering and data science, developing impactful applications that transform complex data into actionable insights and deliver meaningful user experiences. I am committed to continuous learning and eager to contribute my skills to innovative projects in technology, AI, and data-driven development.
+      </p>
+    </section>
 
-  <p style="margin-bottom: 10px;">
-    I am a Computer Science undergraduate at SZABIST Larkana, driven by a strong interest in software development, data science, and the transformative potential of technology. Recently completed my 5th semester, I have built a solid foundation in data structures, algorithms, and object-oriented programming, and am expanding my expertise into advanced development domains.
-  </p>
+    <section id="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <h3>Technical Skills</h3>
+      <ul class="skills-list">
+        <li>Python Development</li>
+        <li>Advanced Python & Flask</li>
+        <li>Flask Framework</li>
+        <li>Jinja Templates</li>
+        <li>SQLAlchemy</li>
+        <li>Database Development</li>
+        <li>HTML5 (Tags & Forms)</li>
+        <li>Web Development</li>
+        <li>Data Science & Machine Learning</li>
+        <li>Data Visualization</li>
+        <li>SQL (MySQL, PostgreSQL)</li>
+        <li>Algorithms & Problem Solving</li>
+      </ul>
+      <h3 style="margin-top: 20px;">Professional Skills</h3>
+      <ul class="skills-list">
+        <li>Project Management</li>
+        <li>Leadership</li>
+        <li>Communication</li>
+        <li>Problem-Solving</li>
+      </ul>
+    </section>
 
-  <p style="margin-bottom: 10px;">
-    My technical skill set includes advanced proficiency in Python and the Flask framework, allowing me to design and build robust web applications. I am experienced with Jinja templating, SQLAlchemy for database integration, and core web technologies like HTML5. My knowledge spans Python fundamentals, object-oriented and functional programming paradigms, and effective error handling, equipping me to create scalable and efficient software solutions.
-  </p>
-
-  <p style="margin-bottom: 10px;">
-    My career objective is to specialize in software engineering and data science, developing impactful applications that transform complex data into actionable insights and deliver meaningful user experiences. I am committed to continuous learning and eager to contribute my skills to innovative projects in technology, AI, and data-driven development.
-  </p>
-</section>
-
-
-   <section id="skills">
-  <h2>Skills</h2>
-  <h3>Technical Skills</h3>
-  <ul class="skills-list">
-    <li>Python Development</li>
-    <li>Advanced Python & Flask</li>
-    <li>Flask Framework</li>
-    <li>Jinja Templates</li>
-    <li>SQLAlchemy</li>
-    <li>Database Development</li>
-    <li>HTML5 (Tags & Forms)</li>
-    <li>Web Development</li>
-    <li>Data Science & Machine Learning</li>
-    <li>Data Visualization</li>
-    <li>SQL (MySQL, PostgreSQL)</li>
-    <li>Algorithms & Problem Solving</li>
-  </ul>
-
-  <h3 style="margin-top: 20px;">Professional Skills</h3>
-  <ul class="skills-list">
-    <li>Project Management</li>
-    <li>Leadership</li>
-    <li>Communication</li>
-    <li>Problem-Solving</li>
-  </ul>
-</section>
-
-
-
-
-    <section id="projects">
+    <section id="projects" data-aos="fade-up">
       <h2>Projects</h2>
       <div class="projects-grid">
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-image-container">
+            <img src="images/gaming-event.png" alt="Gaming Battleground Competition">
+          </div>
+          <div class="project-content">
+            <h3>Gaming Battleground Competition Organizer</h3>
+            <p>Organized and managed the "Gaming Battleground" competition at SZABIST Larkana. Led volunteers, coordinated logistics, and collaborated with departments. Developed leadership, teamwork, and problem-solving skills.</p>
+          </div>
+        </div>
 
-       <div class="project-card">
-  <div class="project-image-container">
-    <img src="images/gaming-event.png" alt="Gaming Battleground Competition">
-  </div>
-  <div class="project-content">
-    <h3>Gaming Battleground Competition Organizer</h3>
-    <p>Organized and managed the "Gaming Battleground" competition at SZABIST Larkana. Led volunteers, coordinated logistics, and collaborated with departments. Developed leadership, teamwork, and problem-solving skills.</p>
-  </div>
-</div>
-
-        <div class="project-card">
+        <div class="project-card" data-aos="fade-up">
           <div class="project-image-container">
             <img src="images/movie-recommender.png" alt="Movie Recommendation System">
           </div>
@@ -325,9 +443,9 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-aos="fade-up">
           <div class="project-image-container">
-            <img src="images/covid_dashboard.png" alt="COVID-19 Data Analysis Dashboard Screenshot" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>COVID Dashboard Image</div>';">
+            <img src="images/covid_dashboard.png" alt="COVID-19 Data Analysis Dashboard Screenshot" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>COVID Dashboard Image</div>'; ">
           </div>
           <div class="project-content">
             <h3>COVID-19 Data Analysis Dashboard</h3>
@@ -335,7 +453,7 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-aos="fade-up">
           <div class="project-image-container">
             <img src="images/portfolio-screenshot.png" alt="Portfolio Website Screenshot">
           </div>
@@ -345,38 +463,67 @@
           </div>
         </div>
 
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-image-container">
+            <img src="images/watch-online-movie.png" alt="Watch Online Movie System Screenshot" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>Watch Online Movie System Image</div>'; ">
+          </div>
+          <div class="project-content">
+            <h3>Online Streaming System</h3>
+            <p>Developed a web application for streaming movies and series online, similar to platforms like Netflix and Prime Video. Implemented user authentication, video playback, content categorization, search functionality, and responsive UI for seamless viewing across devices. Built using technologies such as React, Node.js, Express, and MongoDB, with secure video streaming integration.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="education">
-  <h2>Education</h2>
-  <ul>
-    <li>
-      <strong>Bachelor of Science in Computer Science</strong><br>
-      SZABIST Larkana<br>
-      Current - Completed 5th Semester
-    </li>
-  </ul>
-</section>
+    <section id="education" data-aos="fade-up">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>Bachelor of Science in Computer Science</strong><br>
+          SZABIST University Larkana<br>
+          Currently - Completed 5th Semester
+        </li>
+      </ul>
+    </section>
 
+    <section id="certifications" data-aos="fade-up">
+      <h2>Certifications</h2>
+      <ul class="certs-list">
+        <li>HTML5, Python, Flask Framework - Udemy</li>
+        <li>Python Development and Programming Fundamentals - Udemy</li>
+        <li>Programming for Beginners: Learn to Code in Python - Udemy</li>
+        <li>Authentic Leadership - Udemy</li>
+        <li>2024 Masterclass on Data Science using Python A-Z for ML - Udemy</li>
+        <li>Python Machine Learning Beginner to Advanced - Udemy</li>
+      </ul>
+    </section>
 
-   <section id="certifications">
-  <h2>Certifications</h2>
-  <ul class="certs-list">
-    <li>HTML5, Python, Flask Framework - Udemy</li>
-    <li>Python Development and Programming Fundamentals - Udemy</li>
-    <li>Programming for Beginners: Learn to Code in Python - Udemy</li>
-    <li>Authentic Leadership - Udemy</li>
-    <li>2024 Masterclass on Data Science using Python A-Z for ML - Udemy</li>
-  </ul>
-</section>
-
-
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" data-aos="fade-up">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sobanc9@gmail.com">sobanc9@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/sobanullahchanna/" target="_blank">linkedin.com/in/sobanullahchanna</a></p>
-      <p>Phone: +92 313 2305495</p>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p>Email: <a href="mailto:sobanc9@gmail.com">sobanc9@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/sobanullahchanna/" target="_blank">linkedin.com/in/sobanullahchanna</a></p>
+          <p>Phone: +92 313 2305495</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+          <p id="form-status"></p>
+        </form>
+      </div>
     </section>
 
   </main>
@@ -386,11 +533,54 @@
   </footer>
 
   <script>
+    // Theme Toggle
     function toggleTheme() {
       document.body.classList.toggle('dark');
     }
 
-    // Fallback for images if they don't load
+    // Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('form-status');
+
+   contactForm.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    message: document.getElementById('message').value
+  };
+
+  // Show loading state
+  const submitBtn = document.querySelector('.submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+  formStatus.textContent = '';
+
+  try {
+    const response = await fetch('https://formspree.io/f/xnnvwlbo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      formStatus.textContent = 'Message sent successfully!';
+      formStatus.style.color = 'green';
+      contactForm.reset();
+    } else {
+      throw new Error('Failed to send');
+    }
+  } catch (error) {
+    formStatus.textContent = 'Error sending message. Please try again later.';
+    formStatus.style.color = 'red';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+  }
+});
+
+    // Fallback for missing images
     document.addEventListener('DOMContentLoaded', function() {
       const images = document.querySelectorAll('.project-card img');
       images.forEach(img => {
@@ -399,6 +589,15 @@
           container.innerHTML = '<div class="image-placeholder">' + img.alt + '</div>';
         }
       });
+    });
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800
     });
   </script>
 
